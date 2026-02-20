@@ -1,0 +1,163 @@
+/* =======================================================
+   🎯 DESIGN TOKENS
+======================================================= */
+:root {
+  /* ---------- PRIMARY PALETTE ---------- */
+  --color-primary: #269fe6;
+  --color-primary-hover: #2086c2;
+  --color-primary-dark: #13141f;
+  --color-primary-dark-hover: #212336;
+  --color-primary-light: #d4ecfa;
+  --color-primary-light-hover: #bdd8e7;
+
+  /* ---------- BASE COLORS ---------- */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-text-dark: #444;
+
+  /* ---------- STATUS COLORS ---------- */
+  --color-info: #4d86c4;
+  --color-success: #4a9c5d;
+  --color-warning: #927f40;
+  --color-error: #da525d;
+
+  --color-info-light: #cce5ff;
+  --color-success-light: #d4edda;
+  --color-warning-light: #fff3cd;
+  --color-error-light: #f8d7da;
+
+  /* ---------- GRAY SCALE ---------- */
+  --color-gray-0: #f9f9f9;
+  --color-gray-1: #e0e0e0;
+  --color-gray-2: #c7c7c7;
+  --color-gray-3: #aeaeae;
+  --color-gray-4: #959595;
+  --color-gray-5: #7d7d7d;
+  --color-gray-6: #646464;
+  --color-gray-7: #4b4b4b;
+  --color-gray-8: #323232;
+  --color-gray-9: #191919;
+
+  /* ---------- TYPOGRAPHY ---------- */
+  --font-primary: sans-serif;
+  --font-headings: "Roboto Slab", serif;
+
+  /* ---------- SPACING ---------- */
+  --spacing-md: 3rem;
+  --spacing-lg: 4rem;
+
+  /* ---------- EFFECTS ---------- */
+  --shadow-sm: -5px 5px 10px var(--color-gray-2);
+  --transition-fast: 300ms ease-in-out;
+}
+
+/* =======================================================
+   🧱 RESET BASE
+======================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: var(--font-primary);
+  color: var(--color-text-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-headings);
+}
+
+/* =======================================================
+   📦 LAYOUT
+======================================================= */
+.container {
+  max-width: 144rem;
+  margin-inline: auto;
+  padding: var(--spacing-md);
+}
+
+.main-header-container {
+  background: var(--color-primary-dark);
+}
+
+.main-content {
+  min-height: 60vh;
+  padding: var(--spacing-md);
+}
+
+/* =======================================================
+   🔎 LOGO
+======================================================= */
+.main-logo {
+  font-size: 4rem;
+  color: var(--color-white);
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.main-logo-icon {
+  margin-right: 2rem;
+}
+
+/* =======================================================
+   🔍 SEARCH
+======================================================= */
+.search-form:focus-within .search-button {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+/* =======================================================
+   🍲 RECIPES GRID
+======================================================= */
+.main-content-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: var(--spacing-lg);
+}
+
+/* =======================================================
+   🍲 RECIPE CARD
+======================================================= */
+.recipe {
+  background: var(--color-gray-0);
+  box-shadow: var(--shadow-sm);
+  transform: scale(1);
+
+  transition: transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.recipe img {
+  width: 100%;
+  display: block;
+}
+
+.recipe-list-item {
+  max-width: 64rem;
+}
+
+/* ⚠️ BUG CORRIGIDO: tinha espaço em : hover */
+.recipe-list-item:hover {
+  transform: scale(1.02);
+}
