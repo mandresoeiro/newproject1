@@ -1,0 +1,11 @@
+# Django templates (NÃO deixar prettier formatar)
+**/templates/**/*.html
+**/base_templates/**/*.html
+
+# Python env
+.venv/
+
+# caches
+**/__pycache__/
+**/.mypy_cache/
+**/.pytest_cache/

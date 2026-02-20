@@ -1,0 +1,185 @@
+# =========================================================
+# 🧠 SOEIROTECH — .gitignore (Django + Poetry + VSCode + WSL)
+# =========================================================
+
+# -------------------------
+# ✅ Python / Bytecode
+# -------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# -------------------------
+# ✅ Virtual Envs
+# (você usa Poetry, mas deixo cobertura total)
+# -------------------------
+.venv/
+venv/
+env/
+ENV/
+.virtualenv/
+.virtualenvs/
+.python-version
+
+# -------------------------
+# ✅ Poetry
+# (normalmente COMMITA poetry.lock em app)
+# -------------------------
+# poetry.lock   # <- deixe comentado (RECOMENDADO versionar)
+poetry.toml
+
+# -------------------------
+# ✅ Django
+# -------------------------
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# Se você gera assets compilados localmente:
+static/dist/
+static/build/
+frontend/dist/
+frontend/build/
+
+# -------------------------
+# ✅ Environment files / Secrets
+# -------------------------
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.dev.example
+!.env.prod.example
+
+# Seus arquivos mostrados no print:
+.env.dev
+.env.prod
+
+# Credenciais comuns
+*.pem
+*.key
+*.crt
+*.pfx
+*.p12
+secrets.json
+credentials.json
+
+# -------------------------
+# ✅ Cache / tooling (Python)
+# -------------------------
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+nosetests.xml
+test-results.xml
+*.cover
+*.prof
+
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+
+# -------------------------
+# ✅ Build / Dist
+# -------------------------
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+*.whl
+
+# -------------------------
+# ✅ Jupyter / Data science
+# -------------------------
+.ipynb_checkpoints/
+*.ipynb
+
+# -------------------------
+# ✅ Node / Frontend
+# (mesmo que seja só um teste.js, já protege)
+# -------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# -------------------------
+# ✅ OS / Editor / IDE
+# -------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code (mantém settings versionado, ignora o resto)
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# JetBrains
+.idea/
+*.iml
+
+# Sublime / vim
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+*.tmp
+
+# -------------------------
+# ✅ WSL / Linux noise
+# -------------------------
+*~
+.nfs*
+.fuse_hidden*
+.Trash-*
+
+# -------------------------
+# ✅ Docker / logs locais
+# -------------------------
+*.pid
+*.seed
+*.pid.lock
+logs/
+log/
+
+# -------------------------
+# ✅ Terraform / infra (se algum dia usar)
+# -------------------------
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+# -------------------------
+# ✅ Segurança extra: dumps, backups, exports
+# -------------------------
+*.sql
+*.dump
+*.bak
+*.backup
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# -------------------------
+# ✅ Optional: se usar Celery / Redis local
+# -------------------------
+celerybeat-schedule
+celerybeat.pid
+redis_dump.rdb
