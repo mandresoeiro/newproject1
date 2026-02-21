@@ -1,12 +1,15 @@
 <div class="search-container">
-    <div class="container">
-        <form action="" class="search-form">
-            <input type="search" class="search-input" placeholder="Search for recipes...">
-            <button type="submit" class="search-button">Search</button>
-
-        </form>
-
-    </div>
-
-
+  <div class="container">
+    <form action="" method="get" class="search-form">
+      <input
+        type="search"
+        name="q"
+        class="search-input"
+        placeholder="Search for recipes..."
+        value="{{ request.GET.q|default:'' }}"
+        aria-label="Search for recipes"
+      />
+      <button type="submit" class="search-button">Search</button>
+    </form>
+  </div>
 </div>

@@ -13,18 +13,13 @@
   /* ---------- BASE COLORS ---------- */
   --color-white: #fff;
   --color-black: #000;
-  --color-text-dark: #444;
+  --color-text: #1f2937; /* mais profissional que #444 */
+  --color-muted: #6b7280;
 
-  /* ---------- STATUS COLORS ---------- */
-  --color-info: #4d86c4;
-  --color-success: #4a9c5d;
-  --color-warning: #927f40;
-  --color-error: #da525d;
-
-  --color-info-light: #cce5ff;
-  --color-success-light: #d4edda;
-  --color-warning-light: #fff3cd;
-  --color-error-light: #f8d7da;
+  /* ---------- SURFACES ---------- */
+  --color-bg: #f5f7fb;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
 
   /* ---------- GRAY SCALE ---------- */
   --color-gray-0: #f9f9f9;
@@ -39,16 +34,28 @@
   --color-gray-9: #191919;
 
   /* ---------- TYPOGRAPHY ---------- */
-  --font-primary: sans-serif;
+  --font-primary: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-headings: "Roboto Slab", serif;
 
   /* ---------- SPACING ---------- */
-  --spacing-md: 3rem;
-  --spacing-lg: 4rem;
+  --space-1: 0.4rem;
+  --space-2: 0.8rem;
+  --space-3: 1.2rem;
+  --space-4: 1.6rem;
+  --space-5: 2.0rem;
+  --space-6: 2.4rem;
+  --space-8: 3.2rem;
+  --space-10: 4.0rem;
+
+  /* ---------- RADIUS ---------- */
+  --radius-sm: 0.6rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.4rem;
 
   /* ---------- EFFECTS ---------- */
-  --shadow-sm: -5px 5px 10px var(--color-gray-2);
-  --transition-fast: 300ms ease-in-out;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.08);
+  --transition-fast: 220ms ease;
 }
 
 /* =======================================================
@@ -58,8 +65,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
@@ -67,9 +72,21 @@ html {
 }
 
 body {
+  margin: 0;
   font-size: 1.6rem;
   font-family: var(--font-primary);
-  color: var(--color-text-dark);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.55;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
 }
 
 h1,
@@ -78,86 +95,221 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 0;
   font-family: var(--font-headings);
+  line-height: 1.2;
 }
 
 /* =======================================================
    📦 LAYOUT
 ======================================================= */
 .container {
-  max-width: 144rem;
+  /* largura mais realista/profissional */
+  max-width: 112rem;
   margin-inline: auto;
-  padding: var(--spacing-md);
+  padding-inline: var(--space-5);
 }
 
-.main-header-container {
-  background: var(--color-primary-dark);
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.main-content {
-  min-height: 60vh;
-  padding: var(--spacing-md);
+.main {
+  flex: 1;
+  padding: var(--space-8) 0 var(--space-10);
+}
+.main-content-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-6);
 }
 
 /* =======================================================
-   🔎 LOGO
+   🧠 HEADER
 ======================================================= */
+.main-header-container {
+  background: var(--color-primary-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.main-header {
+  padding: var(--space-6) 0;
+}
+
 .main-logo {
-  font-size: 4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 3.2rem;
   color: var(--color-white);
   text-decoration: none;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: fit-content;
-  margin-inline: auto;
 }
 
 .main-logo-icon {
-  margin-right: 2rem;
+  font-size: 2.6rem;
 }
 
 /* =======================================================
    🔍 SEARCH
 ======================================================= */
-.search-form:focus-within .search-button {
+.search-container {
+  padding: var(--space-6) 0;
+}
+
+.search-form {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  height: 4.2rem;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search-input:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px var(--color-primary-light);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.search-button {
+  height: 4.2rem;
+  padding: 0 var(--space-5);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-white);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.search-button:hover {
+  background: var(--color-primary-hover);
+}
+
+.search-button:active {
+  transform: translateY(1px);
 }
 
 /* =======================================================
-   🍲 RECIPES GRID
+   🍲 GRID
 ======================================================= */
 .main-content-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: var(--spacing-lg);
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .main-content-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .main-content-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 /* =======================================================
-   🍲 RECIPE CARD
+   🍲 CARD
 ======================================================= */
 .recipe {
-  background: var(--color-gray-0);
+  width: 640px;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   box-shadow: var(--shadow-sm);
-  transform: scale(1);
-
-  transition: transform var(--transition-fast),
-    box-shadow var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  margin: 0 auto; /* centraliza o card */
 }
 
-.recipe img {
-  width: 100%;
+.recipe:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.recipe-cover {
+  width: 640px;
+  height: 480px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.recipe-cover img {
+  width: 640px;
+  height: 480px;
+  object-fit: cover;
   display: block;
 }
 
-.recipe-list-item {
-  max-width: 64rem;
+.recipe-body {
+  flex: 1;
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px;
 }
 
-/* ⚠️ BUG CORRIGIDO: tinha espaço em : hover */
-.recipe-list-item:hover {
-  transform: scale(1.02);
+.recipe-title {
+  font-size: 2.0rem;
+  margin-bottom: var(--space-3);
+}
+
+.recipe-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  color: var(--color-muted);
+  font-size: 1.3rem;
+  margin-bottom: var(--space-4);
+}
+
+.recipe-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.recipe-meta a {
+  color: var(--color-primary-hover);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.recipe-meta a:hover {
+  text-decoration: underline;
+}
+
+.recipe-content {
+  color: var(--color-text);
+  font-size: 1.5rem;
+}
+
+.recipe-content p {
+  margin: 0;
+}
+
+/* =======================================================
+   🦶 FOOTER (opcional)
+======================================================= */
+.footer {
+  padding: var(--space-6) 0;
+  color: var(--color-muted);
+  font-size: 1.3rem;
+  text-align: center;
 }
