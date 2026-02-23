@@ -1,26 +1,12 @@
 from django.shortcuts import render
-
-# # Create your views here.
-# def recipe_list(request):
-#     return render(request, 'recipes/recipe_list.html', {})
+from .models import Recipe
 
 
 def home(request):
+    recipes = Recipe.objects.filter(is_published=True)
     return render(
         request,
         'recipes/pages/home.html',
         status=200,
-        context={'name': 'soeirotech'}
+        context={'recipes': recipes}
     )
-# def recipe_detail(request, recipe_id):
-
-
-# def contato(request):
-#     return render(request, 'temp/temp.html')
-# def contato(request):
-#     return render(
-#         request,
-#         'recipes/contato.html',
-#         status=200,
-#         context={'email': 'soeirotech@gmail.com'}
-#     )

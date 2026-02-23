@@ -1,0 +1,33 @@
+<!-- recipes/templates/recipes/partials/recipe-card.html -->
+<article class="recipe">
+    <div class="recipe-cover">
+        <img src="{{ recipe.cover_url|default:'https://image-placeholder.com/images/actual-size/1024x768.png' }}" alt="Recipe placeholder" />
+    </div>
+
+    <div class="recipe-body">
+        <h2 class="recipe-title">{{ recipe.title|default:'Receita de Exemplo' }}</h2>
+
+        <div class="recipe-meta">
+            <span class="recipe-meta-item">
+                <i class="fas fa-user"></i>
+                {{ recipe.author|default:'Marcio Soeiro' }}
+            </span>
+
+            <span class="recipe-meta-item">
+                <i class="fas fa-calendar-alt"></i>
+                {{ recipe.created_at|default:'16/10/2021 às 11:21' }}
+            </span>
+
+            <span class="recipe-meta-item">
+                <i class="fas fa-layer-group"></i>
+                <a href="/recipes/category/{{ recipe.category.slug|default:'cafe-da-manha' }}/">
+                    {{ recipe.category.name|default:'Café da manhã' }}
+                </a>
+            </span>
+        </div>
+
+        <div class="recipe-content">
+            <p>{{ recipe.description|default:'Lorem, ipsum dolor sit amet consectetur adipisicing elit...' }}</p>
+        </div>
+    </div>
+</article>

@@ -183,3 +183,5 @@ crash.log
 celerybeat-schedule
 celerybeat.pid
 redis_dump.rdb
+
+.excalidraw
