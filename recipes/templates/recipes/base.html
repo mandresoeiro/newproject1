@@ -24,13 +24,14 @@
     {% include "recipes/partials/header.html" %}
     {% include "recipes/partials/search.html" %}
     {% comment %} {% include "recipes/partials/hero.html" %} {% endcomment %}
-    {% include "recipes/partials/footer.html" %}
+
 
     <main class="main">
       <div class="container">
         {% block content %}{% endblock %}
       </div>
     </main>
+    {% include "recipes/partials/footer.html" %}
 
     {# footer opcional #}
     {# {% include "recipes/partials/footer.html" %} #}
