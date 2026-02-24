@@ -76,9 +76,14 @@ USE_I18N = True
 USE_TZ = True
 
 # Arquivos estáticos
-STATIC_URL = "static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_URL = "/static/"
 
-STATIC_ROOT = BASE_DIR / "static"
+# ✅ Em produção: onde o collectstatic junta tudo
+STATIC_ROOT = BASE_DIR / "static_root"
+
+# ✅ Em dev: só use se você tiver uma pasta global "static/" no projeto
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
