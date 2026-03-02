@@ -32,5 +32,9 @@
         <div class="recipe-content">
             <p>{{ recipe.description }}</p>
         </div>
+
+        <footer class="recipe-footer">
+            <a class="recipe-read-more button button-dark button-full-width" href="{% url 'recipe-view' recipe.id %}">Ver mais</a>
+        </footer>
     </div>
 </article>
