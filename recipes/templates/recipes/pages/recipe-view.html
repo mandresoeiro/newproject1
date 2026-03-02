@@ -1,0 +1,15 @@
+{% extends "recipes/base.html" %}
+
+{% block title %}Home | Recipes{% endblock %}
+
+{% block content %}
+<section class="main-content-detail recipe-view">
+  {% if recipes %}
+    {% for recipe in recipes %}
+      {% include "recipes/partials/recipe-card.html" %}
+    {% endfor %}
+  {% else %}
+    <p>Nenhuma receita disponível no momento.</p>
+  {% endif %}
+</section>
+{% endblock %}

@@ -398,3 +398,20 @@ h6 {
     text-align: right;
   }
 }
+
+/* ======================================================
+   📄 DETAIL CONTENT — LIST ITEM
+   Centraliza o conteúdo e controla largura de leitura
+====================================================== */
+
+.main-content-detail .main-list-item {
+  max-width: 80ch;      /* largura ideal para leitura (baseada em caracteres) */
+  margin-inline: auto;  /* centraliza horizontalmente */
+  padding-inline: var(--space-3); /* respiro lateral opcional */
+}
+
+/* Espaçamento entre parágrafos dentro do detalhe */
+.main-content-detail .main-list-item p {
+  margin-bottom: var(--space-4);
+  line-height: 1.6; /* melhora legibilidade */
+}
