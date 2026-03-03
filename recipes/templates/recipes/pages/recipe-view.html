@@ -1,6 +1,12 @@
 {% extends "recipes/base.html" %}
 
-{% block title %}Home | Recipes{% endblock %}
+{% block title %}
+  {% if recipe %}
+    {{ recipe.title }}{% if recipe.description %} - {{ recipe.description|truncatechars:60 }}{% endif %} | Recipes
+  {% else %}
+    Receita | Recipes
+  {% endif %}
+{% endblock %}
 
 {% block content %}
 <section class="main-content-detail recipe-view">
