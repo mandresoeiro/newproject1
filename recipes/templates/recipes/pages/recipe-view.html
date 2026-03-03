@@ -4,6 +4,7 @@
 
 {% block content %}
 <section class="main-content-detail recipe-view">
+  <button type="button" onclick="history.back()">Voltar</button>
   {% if recipe %}
     {% include "recipes/partials/recipe-card.html" %}
   {% else %}
