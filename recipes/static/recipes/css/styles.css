@@ -415,3 +415,7 @@ h6 {
   margin-bottom: var(--space-4);
   line-height: 1.6; /* melhora legibilidade */
 }
+
+.back-button {
+  margin-bottom: var(--space-4);
+}
